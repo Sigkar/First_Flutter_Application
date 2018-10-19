@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 //import 'package:flutter/rendering.dart';
-
-import './product_manager.dart';
+import 'pages/home.dart';
 
 void main() {
 
@@ -25,13 +24,7 @@ class CreateWidget extends StatelessWidget {
         accentColor: Colors.deepOrange,
       ),
       // Scaffold is the basic home application
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("GroupieTech"),
-        ), //App Bar
-        // Body pulls product manager.
-        body: ProductManager(), // Column
-      ), // Scaffold
+      home: HomePage(),
     ); // Home
   }
 }
