@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import './products.dart';
 import './product_control.dart';
 
+// File is from main.dart
+// Collects information from products.dart
+
 class ProductManager extends StatefulWidget {
   final String startingProduct;
-  ProductManager({this.startingProduct = "Sweets Tester"}){
+  ProductManager({this.startingProduct}){
       print("[Product Manager] startingProduct state");
   }
   State<StatefulWidget> createState() {
@@ -19,7 +22,9 @@ class _ProductManagerState extends State<ProductManager> {
   void initState() {
     super.initState();
     print('[Product Manager] [SUPER CALL - initState()] Product Manager is set to State');
-    _products.add(widget.startingProduct);
+    if(widget.startingProduct != null){
+      _products.add(widget.startingProduct);
+    }
   }
 
   @override
