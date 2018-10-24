@@ -13,8 +13,8 @@ ProductControl(this.updateProducts);
     return RaisedButton(
       color: Theme.of(context).primaryColor,
       onPressed: () {
-        print('[Product Manager] Updated to Sweets;');
-        updateProducts('Sweets');
+        print('[Product Manager] Updated to the map value;');
+        updateProducts({'title':'Random Image', 'image':'https://picsum.photos/500/200/?random'});
       }, // Onpressed
       child: Text("Add Product"),
     ); // Raised Button;

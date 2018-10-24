@@ -4,13 +4,14 @@ import '../pages/product.dart';
 //File pulled from Product_Manager.dart.
 
 class Products extends StatelessWidget {
-  final List<String> products;
+  final List<Map<String, String>> products;
+  final Function deleteProduct;
   // The item can be added to via the [] - this is mainly used
   // This is const because the products have already been added to the screen,
   // so it is constructed in a way to not change once rendered (If code in the
   // background tries to change this for example.)
   // in the .add statement
-  Products([this.products = const []]) {
+  Products(this.products, {this.deleteProduct}) {
     print("[Products Widget] Constructor");
   }
 
@@ -18,14 +19,18 @@ class Products extends StatelessWidget {
 // The products are listed as the context and the index,
 // Index is pulled from product.length
   Widget _buildProductItem(BuildContext context, int index) {
+    print("");
+    print("Item is being put on screen");
+    print("Image:" + products[index]['image']);
+    print("Title:" + products[index]['title']);
+    print("");
     return Card(
       child: Column(
         children: <Widget>[
-          //Image.asset('assets/sushiiii.jpeg'),
-          Image.network('https://picsum.photos/500/200/?random'),
-          Text(""),
-          Text(products[index]),
-          Text(""),
+          // Calls the index as well as the key to the map value which is
+          // defined dynamically by adding information.
+          Image.network(products[index]['image']),
+          Text(products[index]['title']),
           ButtonBar(
             alignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -33,7 +38,7 @@ class Products extends StatelessWidget {
                 child: Text("Details"),
                 // Navigator is the built in navigation system which is
                 // listed in flutter.
-                onPressed: () => Navigator.push(
+                onPressed: () => Navigator.push<bool>(
                   // The context in which it is coming from for flutter
                     context,
                   // Material Page Route preps the builder
@@ -41,10 +46,20 @@ class Products extends StatelessWidget {
                       // the builder itself takes the build context
                       // (What stack you are on currently, etc)
                       // Will then produce the new page on top of that stack.
-                        builder: (BuildContext context) => ProductPage())),
-              ),
-            ],
-          ),
+                        builder: (BuildContext context) => ProductPage(products[index]['title'], products[index]['image'])
+                      ) //Material Page Route
+                    ).then((bool value){
+                      if(value){
+                        print("==================================================================");
+                        print("Object should be deleted.");
+                        print("Product is of index - $index");
+                        print("==================================================================");
+                        deleteProduct(index);
+                      }
+                    }), // Navigator Push
+              ), // FlatButton
+            ], // ButtonBar Widget Children
+          ), // Button Bar
         ], //Widget
       ), //Column
     ); //Body Card

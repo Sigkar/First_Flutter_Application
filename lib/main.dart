@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 //import 'package:flutter/rendering.dart';
-import 'pages/home.dart';
+import 'pages/auth.dart';
 
 void main() {
 
@@ -24,7 +24,7 @@ class CreateWidget extends StatelessWidget {
         accentColor: Colors.deepOrange,
       ),
       // Scaffold is the basic home application
-      home: HomePage(),
+      home: AuthPage(),
     ); // Home
   }
 }
