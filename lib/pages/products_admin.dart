@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import '../products/product_manager.dart';
-import './products_admin.dart';
+import './discovery.dart';
 
-class DiscoveryPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
+class ProductAdminPage extends StatelessWidget{
+
+@override
+  Widget build(BuildContext context){
     return Scaffold(
       drawer: Drawer(
         child: Column(
@@ -14,22 +14,23 @@ class DiscoveryPage extends StatelessWidget {
               title: Text("Main Menu"),
             ),
             ListTile(
-              title: Text("Manage your Products"),
+              title: Text("Discovery Feed"),
               onTap: () {
                 Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                        builder: (BuildContext context) => ProductAdminPage()));
+                        builder: (BuildContext context) => DiscoveryPage()));
               }, // onTap
             ), // ListTile
           ], // Column Children Widget
         ), // Column
       ), // Drawer
       appBar: AppBar(
-        title: Text("GroupieTech"),
+        title: Text("Product Admin Page"),
       ), //App Bar
       // Body pulls product manager.
-      body: ProductManager(), // Column
+      body: Text("Hello World"),
     ); // Scaffold
   }
+
 }
