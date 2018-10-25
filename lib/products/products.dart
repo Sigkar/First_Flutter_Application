@@ -42,12 +42,7 @@ class Products extends StatelessWidget {
                   // The context in which it is coming from for flutter
                     context,
                   // Material Page Route preps the builder
-                    MaterialPageRoute(
-                      // the builder itself takes the build context
-                      // (What stack you are on currently, etc)
-                      // Will then produce the new page on top of that stack.
-                        builder: (BuildContext context) => ProductPage(products[index]['title'], products[index]['image'])
-                      ) //Material Page Route
+                    MaterialPageRoute(builder: (BuildContext context) => ProductPage(products[index]['title'], products[index]['image']))
                     ).then((bool value){
                       if(value){
                         print("==================================================================");

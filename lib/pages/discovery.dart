@@ -4,6 +4,12 @@ import './products_admin.dart';
 
 class DiscoveryPage extends StatelessWidget {
   @override
+  final List<Map<String, String>> products;
+  final Function deleteProduct;
+  final Function addProduct;
+
+  DiscoveryPage(this.products, this.deleteProduct, this.addProduct);
+
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: Drawer(
@@ -16,10 +22,8 @@ class DiscoveryPage extends StatelessWidget {
             ListTile(
               title: Text("Manage your Products"),
               onTap: () {
-                Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (BuildContext context) => ProductAdminPage()));
+                // Goes to a named route from main.dart
+                Navigator.pushReplacementNamed(context, '/productadmin');
               }, // onTap
             ), // ListTile
           ], // Column Children Widget
@@ -29,7 +33,7 @@ class DiscoveryPage extends StatelessWidget {
         title: Text("GroupieTech"),
       ), //App Bar
       // Body pulls product manager.
-      body: ProductManager(), // Column
+      body: ProductManager(products, addProduct, deleteProduct), // Column
     ); // Scaffold
   }
 }

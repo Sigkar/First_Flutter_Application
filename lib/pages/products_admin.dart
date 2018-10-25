@@ -21,10 +21,11 @@ class ProductAdminPage extends StatelessWidget {
               ListTile(
                 title: Text("Discovery Feed"),
                 onTap: () {
-                  Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                          builder: (BuildContext context) => DiscoveryPage()));
+                  Navigator.pushReplacement(context,
+                  MaterialPageRoute(
+                    builder: (BuildContext context) => ProductsPage(),
+                  ),
+                );
                 }, // onTap
               ), // ListTile
             ], // Column Children Widget
