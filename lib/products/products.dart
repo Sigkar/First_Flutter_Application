@@ -38,17 +38,10 @@ class Products extends StatelessWidget {
                 child: Text("Details"),
                 // Navigator is the built in navigation system which is
                 // listed in flutter.
-                onPressed: () => Navigator.push<bool>(
-                  // The context in which it is coming from for flutter
-                    context,
-                  // Material Page Route preps the builder
-                    MaterialPageRoute(builder: (BuildContext context) => ProductPage(products[index]['title'], products[index]['image']))
-                    ).then((bool value){
-                      if(value){
-                        print("==================================================================");
-                        print("Object should be deleted.");
-                        print("Product is of index - $index");
-                        print("==================================================================");
+                onPressed: () => Navigator.pushNamed<bool>(
+                            context, "/products/" + index.toString())
+                        .then((bool value) {
+                      if (value) {
                         deleteProduct(index);
                       }
                     }), // Navigator Push
@@ -64,6 +57,7 @@ class Products extends StatelessWidget {
   Widget _buildProductLists() {
     //initialize productCard as empty
     Widget productCards;
+    print(products);
     if (products.length > 0) {
       // If we have items, overwrite productCard
       productCards = ListView.builder(

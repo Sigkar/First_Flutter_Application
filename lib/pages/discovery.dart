@@ -2,14 +2,18 @@ import 'package:flutter/material.dart';
 import '../products/product_manager.dart';
 import './products_admin.dart';
 
+
 class DiscoveryPage extends StatelessWidget {
-  @override
+
+  //Defines the things that need to be passed back to the main.dart file
   final List<Map<String, String>> products;
   final Function deleteProduct;
   final Function addProduct;
 
-  DiscoveryPage(this.products, this.deleteProduct, this.addProduct);
 
+  // Constructs the information which needs to be passed to Product Manager
+  DiscoveryPage(this.products, this.deleteProduct, this.addProduct);
+@override
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: Drawer(
