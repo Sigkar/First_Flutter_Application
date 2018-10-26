@@ -66,16 +66,23 @@ class _CreateWidgetState extends State<CreateWidget> {
           // continue)
           if (pathElements[0] != "") {
             return null;
-          }
+          } // If theres nothing
           // If we have product as our first route
           if (pathElements[1] == "product") {
             final int index = int.parse(pathElements[2]);
             return MaterialPageRoute<bool>(
                 builder: (BuildContext context) => ProductPage(
                     _products[index]['title'], _products[index]['image']),
-                  );
-          }
-          return null;
-        }); // Home
+                  ); // MaterialPageRoute
+          } // If we're on Products
+          return null; //Default
+        }, // onGenerateRoute
+        onUnknownRoute: (RouteSettings settings){
+          return MaterialPageRoute(
+            builder: (BuildContext context) => DiscoveryPage(_products, _addProduct, _deleteProduct),
+          ); // Material Page Route
+        } // On Unknown Route
+
+      ); // Material App
   }
 }

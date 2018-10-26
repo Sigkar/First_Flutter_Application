@@ -7,8 +7,32 @@ class ProductPage extends StatelessWidget {
   final String title;
   final String imgUrl;
 
-  ProductPage(this.title, this.imgUrl);
+  _showWarningDialog(BuildContext context) {
+    return showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text("Are you sure?"),
+            content: Text("This action can not be undone!"),
+            actions: <Widget>[
+              FlatButton(
+                  child: Text("Cancel"),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  }),
+              FlatButton(
+                  child: Text("Delete"),
+                  onPressed: () {
+                    Navigator.pop(context);
+                    Navigator.pop(context, true);
+                  }), //FlatButton, OnPressed
+            ], // Actions
+          ); // Alert Dialog
+        }); // Show Dialog
+  }
 
+  ProductPage(this.title, this.imgUrl);
+  @override
   Widget build(BuildContext context) {
     print("==================================================================");
     print("Item Details - Returning Scaffold");
@@ -16,12 +40,14 @@ class ProductPage extends StatelessWidget {
     print("Image: " + imgUrl);
     print("==================================================================");
     return WillPopScope(
-      onWillPop: (){
+      onWillPop: () {
         print("");
-        print("==================================================================");
+        print(
+            "==================================================================");
         print("Button has been pressed");
         print("Popping the context");
-        print("==================================================================");
+        print(
+            "==================================================================");
         print("");
         Navigator.pop(context, false);
         return Future.value(false);
@@ -39,10 +65,10 @@ class ProductPage extends StatelessWidget {
             Container(
                 padding: EdgeInsets.all(10.0),
                 child: RaisedButton(
-                  color: Theme.of(context).accentColor,
-                  child: Text("DELETE"),
-                  onPressed: () => Navigator.pop(context, true),
-                ) // Raised Button
+                    color: Theme.of(context).accentColor,
+                    child: Text("Delete"),
+                    onPressed: () => _showWarningDialog(context),
+                    ) // Raised Button
                 ),
           ], // Children Widget
         ), // Column

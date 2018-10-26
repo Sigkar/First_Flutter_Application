@@ -39,7 +39,7 @@ class Products extends StatelessWidget {
                 // Navigator is the built in navigation system which is
                 // listed in flutter.
                 onPressed: () => Navigator.pushNamed<bool>(
-                            context, "/products/" + index.toString())
+                            context, "/product/" + index.toString())
                         .then((bool value) {
                       if (value) {
                         deleteProduct(index);
