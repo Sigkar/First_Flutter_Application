@@ -6,6 +6,7 @@ class ProductPage extends StatelessWidget {
   @override
   final String title;
   final String imgUrl;
+  final String description;
 
   _showWarningDialog(BuildContext context) {
     return showDialog(
@@ -31,7 +32,7 @@ class ProductPage extends StatelessWidget {
         }); // Show Dialog
   }
 
-  ProductPage(this.title, this.imgUrl);
+  ProductPage(this.title, this.imgUrl, this.description);
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -48,7 +49,13 @@ class ProductPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Image.network(imgUrl),
-            Container(padding: EdgeInsets.all(10.0), child: Text(title)),
+            Container(
+              padding: EdgeInsets.all(10.0),
+              child: Text(title)
+            ),
+            Container(
+              child: Text(description)
+            ),
             Container(
                 padding: EdgeInsets.all(10.0),
                 child: RaisedButton(

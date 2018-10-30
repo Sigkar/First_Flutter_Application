@@ -58,7 +58,19 @@ class _ProductCreatePageState extends State<ProductCreatePage> {
               }); // SetState
             }, // On Changed Function (String Input)
           ), // Text Field
-
+            /* Can also do this :)
+             *  onPressed: () {
+              final product = {
+                'title': ttlVal,
+                'description': dscVal,
+                'price': prcVal
+              };
+              widget.addProduct(product);
+            },
+             */
+          SizedBox(
+            height: 10.0
+          ),
           RaisedButton(
             child: Text("Submit"),
             onPressed: ((){
@@ -69,6 +81,7 @@ class _ProductCreatePageState extends State<ProductCreatePage> {
                 'image': 'https://picsum.photos/500/300/?image=967'
               };
               widget.addProduct(product);
+              Navigator.pushReplacementNamed(context, "/");
             }),
           ),
         ], // Children Widget

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 //import 'package:flutter/rendering.dart';
-// import 'package:initial_flutter_project/pages/auth.dart';
+import 'package:initial_flutter_project/pages/auth.dart';
 
 import 'package:initial_flutter_project/pages/products_admin.dart';
 import 'package:initial_flutter_project/pages/discovery.dart';
@@ -53,7 +53,8 @@ class _CreateWidgetState extends State<CreateWidget> {
         routes: {
           //generates named routes
           '/': (BuildContext context) =>
-              DiscoveryPage(_products),
+              AuthPage(),
+          '/discovery': (BuildContext context) => DiscoveryPage(_products),
           '/productadmin': (BuildContext context) => ProductAdminPage(_addProduct, _deleteProduct),
         },
         onGenerateRoute: (RouteSettings settings) {
@@ -71,7 +72,7 @@ class _CreateWidgetState extends State<CreateWidget> {
             final int index = int.parse(pathElements[2]);
             return MaterialPageRoute<bool>(
               builder: (BuildContext context) => ProductPage(
-                  _products[index]['title'], _products[index]['image']),
+                  _products[index]['title'], _products[index]['image'], _products[index]['description']),
             ); // MaterialPageRoute
           } // If we're on Products
           return null; //Default
