@@ -10,6 +10,8 @@ class AuthPage extends StatefulWidget{
   }
 }
 class _AuthPageState extends State<AuthPage>{
+  String user = "";
+  String pass = "";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +37,6 @@ class _AuthPageState extends State<AuthPage>{
               obscureText: true,
               decoration: InputDecoration(
                 labelText: 'Password',
-
               ),
               onChanged: (String description) {
                 setState(() {

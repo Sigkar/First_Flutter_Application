@@ -23,7 +23,7 @@ class ProductAdminPage extends StatelessWidget {
               ListTile(
                 title: Text("Discovery Feed"),
                 onTap: () {
-                  Navigator.pushReplacementNamed(context, "/");
+                  Navigator.pushReplacementNamed(context, "/discovery");
                 }, // onTap
               ), // ListTile
             ], // Column Children Widget
