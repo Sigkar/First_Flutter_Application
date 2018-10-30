@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 //import 'package:flutter/rendering.dart';
-import 'pages/auth.dart';
+// import 'package:initial_flutter_project/pages/auth.dart';
 
-import 'pages/products_admin.dart';
-import 'pages/discovery.dart';
-import 'pages/product.dart';
+import 'package:initial_flutter_project/pages/products_admin.dart';
+import 'package:initial_flutter_project/pages/discovery.dart';
+import 'package:initial_flutter_project/pages/product.dart';
 
 void main() {
   //UI Debugging Options
@@ -24,20 +24,19 @@ class CreateWidget extends StatefulWidget {
 }
 
 class _CreateWidgetState extends State<CreateWidget> {
-  List<Map<String, String>> _products = [];
+  List<Map<String, dynamic>> _products = [];
 
-  void _addProduct(Map<String, String> product){
-    setState((){
+  void _addProduct(Map<String, dynamic> product) {
+    setState(() {
       _products.add(product);
     });
   }
 
-  void _deleteProduct(int index){
-    setState((){
+  void _deleteProduct(int index) {
+    setState(() {
       _products.removeAt(index);
     });
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -54,8 +53,8 @@ class _CreateWidgetState extends State<CreateWidget> {
         routes: {
           //generates named routes
           '/': (BuildContext context) =>
-              DiscoveryPage(_products, _addProduct, _deleteProduct),
-          '/productadmin': (BuildContext context) => ProductAdminPage(),
+              DiscoveryPage(_products),
+          '/productadmin': (BuildContext context) => ProductAdminPage(_addProduct, _deleteProduct),
         },
         onGenerateRoute: (RouteSettings settings) {
           // Every time we load a route it will break this up.
@@ -71,18 +70,19 @@ class _CreateWidgetState extends State<CreateWidget> {
           if (pathElements[1] == "product") {
             final int index = int.parse(pathElements[2]);
             return MaterialPageRoute<bool>(
-                builder: (BuildContext context) => ProductPage(
-                    _products[index]['title'], _products[index]['image']),
-                  ); // MaterialPageRoute
+              builder: (BuildContext context) => ProductPage(
+                  _products[index]['title'], _products[index]['image']),
+            ); // MaterialPageRoute
           } // If we're on Products
           return null; //Default
         }, // onGenerateRoute
-        onUnknownRoute: (RouteSettings settings){
+        onUnknownRoute: (RouteSettings settings) {
           return MaterialPageRoute(
-            builder: (BuildContext context) => DiscoveryPage(_products, _addProduct, _deleteProduct),
+            builder: (BuildContext context) =>
+                DiscoveryPage(_products),
           ); // Material Page Route
         } // On Unknown Route
 
-      ); // Material App
+        ); // Material App
   }
 }

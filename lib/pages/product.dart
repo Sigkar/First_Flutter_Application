@@ -34,21 +34,8 @@ class ProductPage extends StatelessWidget {
   ProductPage(this.title, this.imgUrl);
   @override
   Widget build(BuildContext context) {
-    print("==================================================================");
-    print("Item Details - Returning Scaffold");
-    print("Title: " + title);
-    print("Image: " + imgUrl);
-    print("==================================================================");
     return WillPopScope(
       onWillPop: () {
-        print("");
-        print(
-            "==================================================================");
-        print("Button has been pressed");
-        print("Popping the context");
-        print(
-            "==================================================================");
-        print("");
         Navigator.pop(context, false);
         return Future.value(false);
       },
@@ -65,10 +52,10 @@ class ProductPage extends StatelessWidget {
             Container(
                 padding: EdgeInsets.all(10.0),
                 child: RaisedButton(
-                    color: Theme.of(context).accentColor,
-                    child: Text("Delete"),
-                    onPressed: () => _showWarningDialog(context),
-                    ) // Raised Button
+                  color: Theme.of(context).accentColor,
+                  child: Text("Delete"),
+                  onPressed: () => _showWarningDialog(context),
+                ) // Raised Button
                 ),
           ], // Children Widget
         ), // Column

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './discovery.dart';
+
 // import ''
 
 class AuthPage extends StatelessWidget{

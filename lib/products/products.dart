@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import '../pages/product.dart';
+//import 'package:initial_flutter_project/pages/product.dart';
 
 //File pulled from Product_Manager.dart.
 
 class Products extends StatelessWidget {
-  final List<Map<String, String>> products;
+  final List<Map<String, dynamic>> products;
   final Function deleteProduct;
   // The item can be added to via the [] - this is mainly used
   // This is const because the products have already been added to the screen,
@@ -39,12 +39,7 @@ class Products extends StatelessWidget {
                 // Navigator is the built in navigation system which is
                 // listed in flutter.
                 onPressed: () => Navigator.pushNamed<bool>(
-                            context, "/product/" + index.toString())
-                        .then((bool value) {
-                      if (value) {
-                        deleteProduct(index);
-                      }
-                    }), // Navigator Push
+                    context, "/product/" + index.toString()), // Navigator Push
               ), // FlatButton
             ], // ButtonBar Widget Children
           ), // Button Bar

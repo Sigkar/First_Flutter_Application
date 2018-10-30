@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import '../products/product_manager.dart';
-import './products_admin.dart';
+
+import 'package:initial_flutter_project/products/product_manager.dart';
+//import 'package:initial_flutter_project/pages/products_admin.dart';
 
 
 class DiscoveryPage extends StatelessWidget {
 
   //Defines the things that need to be passed back to the main.dart file
-  final List<Map<String, String>> products;
-  final Function deleteProduct;
-  final Function addProduct;
+  final List<Map<String, dynamic>> products;
+
 
 
   // Constructs the information which needs to be passed to Product Manager
-  DiscoveryPage(this.products, this.deleteProduct, this.addProduct);
+  DiscoveryPage(this.products);
 @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,7 +37,7 @@ class DiscoveryPage extends StatelessWidget {
         title: Text("GroupieTech"),
       ), //App Bar
       // Body pulls product manager.
-      body: ProductManager(products, addProduct, deleteProduct), // Column
+      body: ProductManager(products), // Column
     ); // Scaffold
   }
 }
