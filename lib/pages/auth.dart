@@ -19,8 +19,7 @@ class _AuthPageState extends State<AuthPage>{
         title: Text("Authentication"),
       ), //App Bar
       // Body pulls product manager.
-      body: Center(
-        child: Column(
+      body: ListView(
           children: <Widget>[
             TextField(
               decoration: InputDecoration(
@@ -51,7 +50,6 @@ class _AuthPageState extends State<AuthPage>{
               },
             ),
           ],
-        ),
       ), // Column
     ); // Scaffold
   }
