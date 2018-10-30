@@ -25,11 +25,15 @@ class Products extends StatelessWidget {
           // Calls the index as well as the key to the map value which is
           // defined dynamically by adding information.
           Image.network(products[index]['image']),
-          Text(products[index]['title']),
+          Container(
+            margin: EdgeInsets.all(10.0),
+            child: Text(products[index]['title']),
+          ),
           ButtonBar(
             alignment: MainAxisAlignment.center,
             children: <Widget>[
               FlatButton(
+                color: Colors.deepOrangeAccent,
                 child: Text("Details"),
                 // Navigator is the built in navigation system which is
                 // listed in flutter.

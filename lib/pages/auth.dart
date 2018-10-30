@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 
-// import ''
-
-class AuthPage extends StatefulWidget{
+class AuthPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    @override
-      return _AuthPageState();
+    return _AuthPageState();
   }
 }
-class _AuthPageState extends State<AuthPage>{
-  String email = "";
-  String pass = "";
+
+class _AuthPageState extends State<AuthPage> {
+  
+  String _email = "";
+  String _pass = "";
+  bool _acceptTerms = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,16 +20,18 @@ class _AuthPageState extends State<AuthPage>{
         title: Text("Authentication"),
       ), //App Bar
       // Body pulls product manager.
-      body: ListView(
+      body: Container(
+        margin: EdgeInsets.all(10.0),
+        child: ListView(
           children: <Widget>[
             TextField(
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
                 labelText: 'Email',
               ),
-              onChanged: (String _email) {
+              onChanged: (String email) {
                 setState(() {
-                  email = _email;
+                  _email = email;
                 }); // SetState
               }, // On Changed Function (String Input)
             ), // Text Field
@@ -38,23 +41,33 @@ class _AuthPageState extends State<AuthPage>{
               decoration: InputDecoration(
                 labelText: 'Password',
               ),
-              onChanged: (String _pass) {
+              onChanged: (String pass) {
                 setState(() {
-                  pass = _pass;
+                  _pass = pass;
                 }); // SetState
               }, // On Changed Function (String Input)
             ), // Text Field
+            SizedBox(height: 10.0),
+            SwitchListTile(
+              value: _acceptTerms,
+              onChanged: (bool value) {
+                setState(() {
+                  _acceptTerms = value;
+                });
+              },
+              title: Text("Accept Terms (Dummy)"),
+            ),
             RaisedButton(
               child: Text("LOGIN"),
               onPressed: () {
-
-                print("Email: " + email);
-                print("Pass: " + pass);
+                print("Email: " + _email);
+                print("Pass: " + _pass);
                 Navigator.pushReplacementNamed(context, "/discovery");
               },
             ),
           ],
-      ), // Column
+        ), // Column
+      ),
     ); // Scaffold
   }
 }
