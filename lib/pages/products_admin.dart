@@ -6,7 +6,7 @@ import 'package:initial_flutter_project/products/product_list.dart';
 class ProductAdminPage extends StatelessWidget {
   final Function deleteProduct;
   final Function addProduct;
-  ProductAdminPage(this.deleteProduct, this.addProduct);
+  ProductAdminPage(this.addProduct, this.deleteProduct);
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(

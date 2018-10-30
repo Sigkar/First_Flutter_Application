@@ -19,11 +19,6 @@ class Products extends StatelessWidget {
 // The products are listed as the context and the index,
 // Index is pulled from product.length
   Widget _buildProductItem(BuildContext context, int index) {
-    print("");
-    print("Item is being put on screen");
-    print("Image:" + products[index]['image']);
-    print("Title:" + products[index]['title']);
-    print("");
     return Card(
       child: Column(
         children: <Widget>[
