@@ -10,7 +10,7 @@ class AuthPage extends StatefulWidget{
   }
 }
 class _AuthPageState extends State<AuthPage>{
-  String user = "";
+  String email = "";
   String pass = "";
   @override
   Widget build(BuildContext context) {
@@ -22,12 +22,13 @@ class _AuthPageState extends State<AuthPage>{
       body: ListView(
           children: <Widget>[
             TextField(
+              keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
                 labelText: 'Email',
               ),
-              onChanged: (String title) {
+              onChanged: (String _email) {
                 setState(() {
-
+                  email = _email;
                 }); // SetState
               }, // On Changed Function (String Input)
             ), // Text Field
@@ -37,15 +38,18 @@ class _AuthPageState extends State<AuthPage>{
               decoration: InputDecoration(
                 labelText: 'Password',
               ),
-              onChanged: (String description) {
+              onChanged: (String _pass) {
                 setState(() {
-
+                  pass = _pass;
                 }); // SetState
               }, // On Changed Function (String Input)
             ), // Text Field
             RaisedButton(
               child: Text("LOGIN"),
               onPressed: () {
+
+                print("Email: " + email);
+                print("Pass: " + pass);
                 Navigator.pushReplacementNamed(context, "/discovery");
               },
             ),

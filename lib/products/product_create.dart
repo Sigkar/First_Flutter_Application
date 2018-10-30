@@ -13,9 +13,9 @@ class ProductCreatePage extends StatefulWidget {
 
 class _ProductCreatePageState extends State<ProductCreatePage> {
 
-  String ttlVal = "";
-  String dscVal = "";
-  double prcVal = 0.0;
+  String _ttlVal = "";
+  String _dscVal = "";
+  double _prcVal = 0.0;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -30,7 +30,7 @@ class _ProductCreatePageState extends State<ProductCreatePage> {
             ),
             onChanged: (String title) {
               setState(() {
-                ttlVal = title;
+                _ttlVal = title;
               }); // SetState
             }, // On Changed Function (String Input)
           ), // Text Field
@@ -42,7 +42,7 @@ class _ProductCreatePageState extends State<ProductCreatePage> {
             ),
             onChanged: (String description) {
               setState(() {
-                dscVal = description;
+                _dscVal = description;
               }); // SetState
             }, // On Changed Function (String Input)
           ), // Text Field
@@ -54,16 +54,16 @@ class _ProductCreatePageState extends State<ProductCreatePage> {
             ),
             onChanged: (String price) {
               setState(() {
-                prcVal = double.parse(price);
+                _prcVal = double.parse(price);
               }); // SetState
             }, // On Changed Function (String Input)
           ), // Text Field
             /* Can also do this :)
              *  onPressed: () {
               final product = {
-                'title': ttlVal,
-                'description': dscVal,
-                'price': prcVal
+                'title': _ttlVal,
+                'description': _dscVal,
+                'price': _prcVal
               };
               widget.addProduct(product);
             },
@@ -75,13 +75,13 @@ class _ProductCreatePageState extends State<ProductCreatePage> {
             child: Text("Submit"),
             onPressed: ((){
               final Map<String, dynamic> product = {
-                'title': ttlVal,
-                'description': dscVal,
-                'price': prcVal,
+                'title': _ttlVal,
+                'description': _dscVal,
+                'price': _prcVal,
                 'image': 'https://picsum.photos/500/300/?image=967'
               };
               widget.addProduct(product);
-              Navigator.pushReplacementNamed(context, "/");
+              Navigator.pushReplacementNamed(context, "/discovery");
             }),
           ),
         ], // Children Widget
