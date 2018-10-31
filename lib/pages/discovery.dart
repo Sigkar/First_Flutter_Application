@@ -34,7 +34,7 @@ class DiscoveryPage extends StatelessWidget {
         ), // Column
       ), // Drawer
       appBar: AppBar(
-        title: Text("GroupieTech"),
+        title: Text("AnotherList"),
       ), //App Bar
       // Body pulls product manager.
       body: ProductManager(products), // Column
