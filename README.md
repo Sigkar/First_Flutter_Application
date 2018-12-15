@@ -1,3 +1,3 @@
 # initial_flutter_project
 
-This is my first attempt at building an application on flutter.
+Groupietech is a skeleton currently. You can create/remove "Posts" but that is about it.
