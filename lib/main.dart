@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-//import 'package:flutter/rendering.dart';
 import 'package:initial_flutter_project/pages/auth.dart';
 
 import 'package:initial_flutter_project/pages/products_admin.dart';
@@ -7,12 +6,6 @@ import 'package:initial_flutter_project/pages/discovery.dart';
 import 'package:initial_flutter_project/pages/product.dart';
 
 void main() {
-  //UI Debugging Options
-  //debugPaintSizeEnabled = true;
-  //debugPaintBaselinesEnabled = true;
-  //debugPaintPointersEnabled = true;
-
-  //Creates the initial application
   runApp(CreateWidget());
 }
 
@@ -44,9 +37,8 @@ class _CreateWidgetState extends State<CreateWidget> {
         //debugShowMaterialGrid: true,
         //Theme Data can be set here.
         theme: ThemeData(
-          brightness: Brightness.dark,
-          primarySwatch: Colors.deepPurple,
-          accentColor: Colors.deepOrange,
+          primarySwatch: Colors.green,
+          accentColor: Colors.greenAccent,
         ),
         // Scaffold is the basic home application
         //home: AuthPage(),
@@ -58,32 +50,25 @@ class _CreateWidgetState extends State<CreateWidget> {
           '/productadmin': (BuildContext context) => ProductAdminPage(_addProduct, _deleteProduct),
         },
         onGenerateRoute: (RouteSettings settings) {
-          // Every time we load a route it will break this up.
-          // Basically it shards everything, and if the shard is equal to xyz,
-          // then go to do this specific command.
           final List<String> pathElements = settings.name.split('/');
-          // If there is no route to begin with (IE a build route, exit this and
-          // continue)
           if (pathElements[0] != "") {
             return null;
-          } // If theres nothing
-          // If we have product as our first route
+          }
           if (pathElements[1] == "product") {
             final int index = int.parse(pathElements[2]);
             return MaterialPageRoute<bool>(
               builder: (BuildContext context) => ProductPage(
                   _products[index]['title'], _products[index]['image'], _products[index]['description']),
-            ); // MaterialPageRoute
-          } // If we're on Products
-          return null; //Default
-        }, // onGenerateRoute
+            );
+          } 
+          return null; 
+        }, 
         onUnknownRoute: (RouteSettings settings) {
           return MaterialPageRoute(
             builder: (BuildContext context) =>
                 DiscoveryPage(_products),
-          ); // Material Page Route
-        } // On Unknown Route
-
-        ); // Material App
+          ); 
+        }
+        );
   }
 }
