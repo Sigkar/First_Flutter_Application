@@ -8,40 +8,27 @@ class Products extends StatelessWidget {
   }
 
   Widget _buildProductItem(BuildContext context, int index) {
-    double halfWidth = (MediaQuery.of(context).size.width / 2) - 20;
     return Card(
       child: Column(
         children: <Widget>[
-          Image.network(products[index]['image']),
-          Padding(
-            padding: EdgeInsets.all(10.0),
-            child: Row(
+            Image.network(
+              products[index]['image'], 
+              height: 200.0,
+            ),
+             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Container(
-                  height: 60.0,
-                  width: halfWidth,
-                  decoration: BoxDecoration(
-                    color: Theme.of(context).primaryColor,
-                  ),
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
                   child: Text(
                     products[index]['title'],
                     style: TextStyle(
                       fontSize: 24.0,
-                      fontWeight: FontWeight.w700,
-                      fontFamily: 'Oswald',
                     ),
                     textAlign: TextAlign.center,
                   ),
                 ),
                 Container(
                   height: 60.0,
-                  width: halfWidth,
-                  decoration: BoxDecoration(
-                    color: Theme.of(context).primaryColor,
-                  ),
                   padding:
                       EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
                   child: Column(
@@ -51,7 +38,6 @@ class Products extends StatelessWidget {
                         "\$" + products[index]['price'].toString() + "0",
                         style: TextStyle(
                           fontSize: 24.0,
-                          fontWeight: FontWeight.w700,
                         ),
                         textAlign: TextAlign.center,
                       ),
@@ -60,12 +46,11 @@ class Products extends StatelessWidget {
                 ),
               ],
             ),
-          ),
           ButtonBar(
             alignment: MainAxisAlignment.center,
             children: <Widget>[
               FlatButton(
-                color: Colors.deepOrangeAccent,
+                color: Colors.green,
                 child: Text("Details"),
                 onPressed: () => Navigator.pushNamed<bool>(
                     context, "/product/" + index.toString()),

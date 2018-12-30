@@ -16,6 +16,7 @@ class _ProductCreatePageState extends State<ProductCreatePage> {
   String _ttlVal = "";
   String _dscVal = "";
   double _prcVal = 0.0;
+  String _link = "";
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -55,22 +56,23 @@ class _ProductCreatePageState extends State<ProductCreatePage> {
             onChanged: (String price) {
               setState(() {
                 _prcVal = double.parse(price);
-              }); // SetState
-            }, // On Changed Function (String Input)
-          ), // Text Field
-            /* Can also do this :)
-             *  onPressed: () {
-              final product = {
-                'title': _ttlVal,
-                'description': _dscVal,
-                'price': _prcVal
-              };
-              widget.addProduct(product);
-            },
-             */
+              }); 
+            }, 
+          ), 
           SizedBox(
             height: 10.0
           ),
+          TextField(
+            keyboardType: TextInputType.number,
+            decoration: InputDecoration(
+              labelText: 'Link to Image',
+            ),
+            onChanged: (String link) {
+              setState(() {
+                _link = link;
+              }); 
+            }, 
+          ), 
           RaisedButton(
             child: Text("Submit"),
             onPressed: ((){
@@ -78,7 +80,7 @@ class _ProductCreatePageState extends State<ProductCreatePage> {
                 'title': _ttlVal,
                 'description': _dscVal,
                 'price': _prcVal,
-                'image': 'https://picsum.photos/500/300/?image=967'
+                'image': _link,
               };
               widget.addProduct(product);
               Navigator.pushReplacementNamed(context, "/discovery");

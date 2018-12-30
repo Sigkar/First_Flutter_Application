@@ -34,16 +34,11 @@ class _CreateWidgetState extends State<CreateWidget> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        //debugShowMaterialGrid: true,
-        //Theme Data can be set here.
         theme: ThemeData(
           primarySwatch: Colors.green,
           accentColor: Colors.greenAccent,
         ),
-        // Scaffold is the basic home application
-        //home: AuthPage(),
         routes: {
-          //generates named routes
           '/': (BuildContext context) =>
               AuthPage(),
           '/discovery': (BuildContext context) => DiscoveryPage(_products),
