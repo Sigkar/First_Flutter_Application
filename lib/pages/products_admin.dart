@@ -10,7 +10,6 @@ class ProductAdminPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      //Defines the length of the tabs
       length: 2,
       child: Scaffold(
         drawer: Drawer(
@@ -24,36 +23,34 @@ class ProductAdminPage extends StatelessWidget {
                 title: Text("Discovery Feed"),
                 onTap: () {
                   Navigator.pushReplacementNamed(context, "/discovery");
-                }, // onTap
-              ), // ListTile
-            ], // Column Children Widget
-          ), // Column
-        ), // Drawer
+                },
+              ),
+            ],
+          ),
+        ),
         appBar: AppBar(
-          title: Text("Product Admin Page"),
+          title: Text("Beer Maker"),
           bottom: TabBar(
             tabs: <Widget>[
               Tab(
                 icon: Icon(Icons.create),
-                text: "Create Product"
-              ), // Tab
+                text: "Create"
+              ),
               Tab(
                 icon: Icon(Icons.list),
-                text: "My Products",
-              ), // Tab
-            ], // Tabs
-          ), // Tab Bar
-        ), //App Bar
-        // Body pulls product manager.
+                text: "Added",
+              ),
+            ],
+          ),
+        ),
         body: TabBarView(
           children: <Widget>[
-            // Has to equal the number of tabs
             ProductCreatePage(addProduct),
             ProductListPage(),
           ],
         ),
 
-      ), // Scaffold
+      ),
     );
   }
 }

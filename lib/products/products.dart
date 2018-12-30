@@ -18,7 +18,8 @@ class Products extends StatelessWidget {
              Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Container(
+                Padding(
+                  padding: EdgeInsets.all(8.0),
                   child: Text(
                     products[index]['title'],
                     style: TextStyle(
@@ -27,31 +28,28 @@ class Products extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                 ),
-                Container(
-                  height: 60.0,
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text(
-                        "\$" + products[index]['price'].toString() + "0",
-                        style: TextStyle(
-                          fontSize: 24.0,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ],
-                  ),
+                ListTile(
+                  leading: Icon(Icons.assessment),
+                  title: Text("San Fransisco"),
+                  subtitle: Text("Rating: " + products[index]['price'].toString(),),
                 ),
               ],
             ),
           ButtonBar(
-            alignment: MainAxisAlignment.center,
             children: <Widget>[
               FlatButton(
-                color: Colors.green,
                 child: Text("Details"),
+                onPressed: () => Navigator.pushNamed<bool>(
+                    context, "/product/" + index.toString()),
+              ),
+              FlatButton(
+                child: Row(children: <Widget>[
+                    Icon(
+                      Icons.star, color: Colors.amber,
+                    ),
+                    Text("Rate Me"),
+                  ],
+                ), 
                 onPressed: () => Navigator.pushNamed<bool>(
                     context, "/product/" + index.toString()),
               ),
