@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:initial_flutter_project/pages/auth.dart';
 
+//import 'package:flutter/rendering.dart';
+
 import 'package:initial_flutter_project/pages/products_admin.dart';
 import 'package:initial_flutter_project/pages/discovery.dart';
 import 'package:initial_flutter_project/pages/product.dart';
 
 void main() {
+  //debugPaintSizeEnabled= true;
   runApp(CreateWidget());
 }
 
@@ -64,6 +67,6 @@ class _CreateWidgetState extends State<CreateWidget> {
                 DiscoveryPage(_products),
           ); 
         }
-        );
+      );
   }
 }

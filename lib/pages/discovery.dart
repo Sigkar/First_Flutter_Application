@@ -14,9 +14,10 @@ class DiscoveryPage extends StatelessWidget {
           children: <Widget>[
             AppBar(
               automaticallyImplyLeading: false,
-              title: Text("Main Menu"),
+              title: Text("WheatFeast"),
             ),
             ListTile(
+              leading: Icon(Icons.create),
               title: Text("Create a Beer"),
               onTap: () {
                 Navigator.pushReplacementNamed(context, '/productadmin');

@@ -43,30 +43,34 @@ class ProductPage extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: Text(title),
-        ), //App Bar
-        // Body pulls product manager.
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Image.network(imgUrl),
-            Container(
-              padding: EdgeInsets.all(10.0),
-              child: Text(title)
-            ),
-            Container(
-              child: Text(description)
-            ),
-            Container(
+        ), 
+        body: Center(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Image.network(
+                imgUrl,
+                height:250
+              ),
+              Container(
                 padding: EdgeInsets.all(10.0),
-                child: RaisedButton(
-                  color: Theme.of(context).accentColor,
-                  child: Text("Delete"),
-                  onPressed: () => _showWarningDialog(context),
-                ) // Raised Button
+                child: Text(title)
+              ),
+              Container(
+                child: Text(description)
+              ),
+              Container(
+                  padding: EdgeInsets.all(10.0),
+                  child: RaisedButton(
+                    color: Theme.of(context).accentColor,
+                    child: Text("Delete"),
+                    onPressed: () => _showWarningDialog(context),
+                  )
                 ),
-          ], // Children Widget
-        ), // Column
-      ), // WillPopScope
-    ); // Scaffold
+            ],
+          ), 
+        ),
+      ),
+    ); 
   }
 }

@@ -9,55 +9,52 @@ class Products extends StatelessWidget {
 
   Widget _buildProductItem(BuildContext context, int index) {
     return Card(
-      child: Column(
-        children: <Widget>[
-            Image.network(
-              products[index]['image'], 
-              height: 200.0,
-            ),
-             Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Text(
-                    products[index]['title'],
-                    style: TextStyle(
-                      fontSize: 24.0,
+      child: Padding(
+        padding: EdgeInsets.symmetric(
+          vertical: 25.0,
+          horizontal: 0.0,
+        ),
+        child: Column(
+          children: <Widget>[
+
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  ListTile(
+                    leading:             
+                    Image.network(
+                      products[index]['image'], 
+                      height: 100.0,
                     ),
-                    textAlign: TextAlign.center,
+                    title: Text(products[index]['title']),
+                    subtitle: Text("Rating: " + products[index]['price'].toString() + "/5.0",),
                   ),
+                ],
+              ),
+            ButtonBar(
+              children: <Widget>[
+                FlatButton(
+                  child: Text("Details"),
+                  onPressed: () => Navigator.pushNamed<bool>(
+                      context, "/product/" + index.toString()),
                 ),
-                ListTile(
-                  leading: Icon(Icons.assessment),
-                  title: Text("San Fransisco"),
-                  subtitle: Text("Rating: " + products[index]['price'].toString(),),
+                FlatButton(
+                  child: Row(children: <Widget>[
+                      Icon(
+                        Icons.star, color: Colors.amber,
+                      ),
+                      Text("Rate Me"),
+                    ],
+                  ), 
+                  onPressed: () => Navigator.pushNamed<bool>(
+                      context, "/product/" + index.toString()),
                 ),
               ],
             ),
-          ButtonBar(
-            children: <Widget>[
-              FlatButton(
-                child: Text("Details"),
-                onPressed: () => Navigator.pushNamed<bool>(
-                    context, "/product/" + index.toString()),
-              ),
-              FlatButton(
-                child: Row(children: <Widget>[
-                    Icon(
-                      Icons.star, color: Colors.amber,
-                    ),
-                    Text("Rate Me"),
-                  ],
-                ), 
-                onPressed: () => Navigator.pushNamed<bool>(
-                    context, "/product/" + index.toString()),
-              ),
-            ],
-          ),
-        ],
+          ],
+        ),
       ),
-    ); 
+    );
   }
   Widget _buildProductLists() {
     Widget productCards;

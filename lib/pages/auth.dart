@@ -24,6 +24,9 @@ class _AuthPageState extends State<AuthPage> {
         margin: EdgeInsets.all(10.0),
         child: ListView(
           children: <Widget>[
+            Center(
+              child: Image.asset('assets/random-logo.png', height: 100.0),
+            ),
             TextField(
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(

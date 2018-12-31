@@ -20,7 +20,8 @@ class ProductAdminPage extends StatelessWidget {
                 title: Text("Main Menu"),
               ),
               ListTile(
-                title: Text("Discovery Feed"),
+                leading: Icon(Icons.view_list),
+                title: Text("Home"),
                 onTap: () {
                   Navigator.pushReplacementNamed(context, "/discovery");
                 },

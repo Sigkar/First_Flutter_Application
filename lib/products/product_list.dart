@@ -6,7 +6,7 @@ class ProductListPage extends StatelessWidget{
   @override
     Widget build( BuildContext context ){
       return Center(
-        child: Text("All Products"),
+        child: Text("Your created beers will go here."),
       );
     }
 }
