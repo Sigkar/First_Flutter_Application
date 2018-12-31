@@ -31,31 +31,66 @@ class Products extends StatelessWidget {
                   ),
                 ],
               ),
-            ButtonBar(
-              children: <Widget>[
-                FlatButton(
-                  child: Text("Details"),
-                  onPressed: () => Navigator.pushNamed<bool>(
-                      context, "/product/" + index.toString()),
-                ),
-                FlatButton(
-                  child: Row(children: <Widget>[
-                      Icon(
-                        Icons.star, color: Colors.amber,
+              Padding(
+                padding: EdgeInsets.only(top:20.0),
+                child:Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Expanded(
+                      child:FlatButton(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Icon(
+                              Icons.list, 
+                            ),
+                            Text("Details"),
+                          ],
+                        ),
+                        onPressed: () => Navigator.pushNamed<bool>(
+                          context, "/product/" + index.toString()),
                       ),
-                      Text("Rate Me"),
-                    ],
-                  ), 
-                  onPressed: () => Navigator.pushNamed<bool>(
-                      context, "/product/" + index.toString()),
+                    ),
+                    Expanded(
+                      child:FlatButton(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Icon(
+                              Icons.star, 
+                              color: Colors.amber,
+                            ),
+                            Text("Rate Me"),
+                          ],
+                        ), 
+                        onPressed: () => Navigator.pushNamed<bool>(
+                            context, "/product/" + index.toString()),
+                      ),
+                    ),
+                    Expanded(
+                      child: FlatButton(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Icon(
+                              Icons.favorite_border,
+                              color: Colors.redAccent,
+                            ),
+                          ],
+                        ),
+                        onPressed: () {
+                          /* API to favorite for this user */
+                        }
+                      ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
-          ],
+              ),
+            ],
+          ),
         ),
-      ),
-    );
-  }
+      );
+    }
   Widget _buildProductLists() {
     Widget productCards;
     print(products);
