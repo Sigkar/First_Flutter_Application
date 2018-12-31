@@ -6,7 +6,7 @@ import 'package:initial_flutter_project/pages/auth.dart';
 import 'package:initial_flutter_project/pages/products_admin.dart';
 import 'package:initial_flutter_project/pages/discovery.dart';
 import 'package:initial_flutter_project/pages/product.dart';
-
+import 'package:initial_flutter_project/pages/restaurant.dart';
 void main() {
   //debugPaintSizeEnabled= true;
   runApp(CreateWidget());
@@ -46,6 +46,7 @@ class _CreateWidgetState extends State<CreateWidget> {
               AuthPage(),
           '/discovery': (BuildContext context) => DiscoveryPage(_products),
           '/productadmin': (BuildContext context) => ProductAdminPage(_addProduct, _deleteProduct),
+          '/restaurant': (BuildContext context) => Restaurant(),
         },
         onGenerateRoute: (RouteSettings settings) {
           final List<String> pathElements = settings.name.split('/');

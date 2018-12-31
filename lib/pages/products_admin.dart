@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:initial_flutter_project/products/product_create.dart';
 import 'package:initial_flutter_project/products/product_list.dart';
+import 'package:initial_flutter_project/customwidgets/navdrawer.dart';
 
 class ProductAdminPage extends StatelessWidget {
   final Function deleteProduct;
@@ -12,23 +13,7 @@ class ProductAdminPage extends StatelessWidget {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-        drawer: Drawer(
-          child: Column(
-            children: <Widget>[
-              AppBar(
-                automaticallyImplyLeading: false,
-                title: Text("Main Menu"),
-              ),
-              ListTile(
-                leading: Icon(Icons.view_list),
-                title: Text("Home"),
-                onTap: () {
-                  Navigator.pushReplacementNamed(context, "/discovery");
-                },
-              ),
-            ],
-          ),
-        ),
+        drawer: NavDrawer(),
         appBar: AppBar(
           title: Text("Beer Maker"),
           bottom: TabBar(

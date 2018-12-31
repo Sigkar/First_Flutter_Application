@@ -51,7 +51,7 @@ class _ProductCreatePageState extends State<ProductCreatePage> {
           TextField(
             keyboardType: TextInputType.number,
             decoration: InputDecoration(
-              labelText: 'Price Input',
+              labelText: 'Rating',
             ),
             onChanged: (String price) {
               setState(() {
@@ -63,7 +63,6 @@ class _ProductCreatePageState extends State<ProductCreatePage> {
             height: 10.0
           ),
           TextField(
-            keyboardType: TextInputType.number,
             decoration: InputDecoration(
               labelText: 'Link to Image',
             ),
