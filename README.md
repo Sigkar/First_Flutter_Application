@@ -7,4 +7,4 @@ This is honestly just a pet project to get deeper into Firebase. I need to write
 - Maybe also post food that goes well with these beers?
 - Pick a radius and find the best beer nearby?
 
-![WheatFeast App Img](https://i.imgur.com/3OWH0WA.png)
+<img src="https://i.imgur.com/3OWH0WA.png" width="250"/>
